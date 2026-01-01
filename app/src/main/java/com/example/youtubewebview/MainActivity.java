@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         webView.setWebViewClient(new WebViewClient());
         webView.setWebChromeClient(new WebChromeClient());
 
-        String videoId = "dQw4w9WgXcQ"; // <-- замени при необходимости
+        String videoId = "3JIPDZqkeSo"; // <-- замени при необходимости
 
         String html =
                 "<!DOCTYPE html>" +
