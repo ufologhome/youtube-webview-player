@@ -1,0 +1,9 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "youtube-webview-player"
+include(":app")
