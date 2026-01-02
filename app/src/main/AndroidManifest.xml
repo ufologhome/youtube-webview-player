@@ -3,8 +3,9 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:label="YouTube VPN"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:hardwareAccelerated="true"
+        android:label="YouTube WebView"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
         <activity
             android:name=".MainActivity"
@@ -14,15 +15,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <service
-            android:name=".MyVpnService"
-            android:permission="android.permission.BIND_VPN_SERVICE"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.net.VpnService"/>
-            </intent-filter>
-        </service>
 
     </application>
 </manifest>
