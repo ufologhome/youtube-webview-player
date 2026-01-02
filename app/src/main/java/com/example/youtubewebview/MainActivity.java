@@ -1,33 +1,28 @@
 package com.example.vpn;
 
-import android.content.Intent;
-import android.net.VpnService;
 import android.os.Bundle;
-import android.webkit.WebView;
 import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle b) {
-        super.onCreate(b);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-        Intent vpnIntent = VpnService.prepare(this);
-        if (vpnIntent != null) {
-            startActivityForResult(vpnIntent, 0);
-        } else {
-            startService(new Intent(this, MyVpnService.class));
-        }
+        WebView webView = new WebView(this);
+        setContentView(webView);
 
-        WebView w = new WebView(this);
-        setContentView(w);
+        WebSettings settings = webView.getSettings();
+        settings.setJavaScriptEnabled(true);
+        settings.setDomStorageEnabled(true);
+        settings.setMediaPlaybackRequiresUserGesture(false);
 
-        WebSettings s = w.getSettings();
-        s.setJavaScriptEnabled(true);
-        s.setDomStorageEnabled(true);
-        s.setMediaPlaybackRequiresUserGesture(false);
+        // 🔥 ВАЖНО — БЕЗ ЭТОГО БУДЕТ КРАШ / ВЫХОД
+        webView.setWebViewClient(new WebViewClient());
 
-        w.loadUrl("https://www.youtube.com");
+        webView.loadUrl("https://m.youtube.com");
     }
 }
